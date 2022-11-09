@@ -8,6 +8,8 @@ const ulEl = document.getElementById("ul-el")
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value);
     renderLeads();
+    let inputEmpty = "";
+    inputEl.value = inputEmpty;
 });
 
 //Log out the items of the Array
