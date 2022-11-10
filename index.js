@@ -1,8 +1,17 @@
 //Create Array to store the leads
-let myLeads = ["pepe", "tato"];
+let myLeads = `[]`;
+myLeads = JSON.parse(myLeads);
+
 const inputEl = document.getElementById("input-el"); //This cannot be reassign
 let inputBtn = document.getElementById("input-btn");
-const ulEl = document.getElementById("ul-el")
+const ulEl = document.getElementById("ul-el");
+
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage;
+    renderLeads();
+}
 
 //Activate the save button after click
 inputBtn.addEventListener("click", function() {
@@ -10,6 +19,7 @@ inputBtn.addEventListener("click", function() {
     renderLeads();
     let inputEmpty = "";
     inputEl.value = inputEmpty;
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
 });
 
 //Log out the items of the Array
@@ -28,8 +38,9 @@ function renderLeads() {
     //ulEl.append(li);
 };
 
-    ulEl.innerHTML = listItems;
+ulEl.innerHTML = listItems;
 };
+
 
 
 
