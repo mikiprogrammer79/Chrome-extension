@@ -41,7 +41,14 @@ function renderLeads() {
 ulEl.innerHTML = listItems;
 };
 
+//Delete All button
+let deleteBtn = document.getElementById("delete-btn");
 
+deleteBtn.addEventListener("click", function() {
+    localStorage.clear();
+    myLeads = [];
+    renderLeads();
+})
 
 
 
